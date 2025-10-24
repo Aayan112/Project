@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIANA'S MEALS - Menu</title>
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="meals-page">
+
+    <header class="main-header page-header">
+        <div class="logo">KIANA'S MEALS</div>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="meals.html">Meals</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="menu-section section">
+        <div class="section-inner">
+            <div class="menu-container">
+                <div class="menu-sidebar">
+                    <button class="category-btn" data-target="#rice">
+                        <img src="buttonrice.png" alt="Rice Meals" class="category-img">
+                        <span>Rice Meals</span>
+                    </button>
+                    <button class="category-btn" data-target="#dessert">
+                        <img src="buttondessert.png" alt="Dessert" class="category-img">
+                        <span>Desserts</span>
+                    </button>
+                    <button class="category-btn" data-target="#drinks">
+                        <img src="buttondrink.png" alt="Drinks" class="category-img">
+                        <span>Drinks</span>
+                    </button>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <img src="meals.jpg" alt="Rice Meals" class="menu-image">
+                        <div class="menu-content">
+                            <h3>Rice Meals</h3>
+                            <p>Savor authentic Filipino rice dishes, from savory adobo to spicy Bicol Express, all served with steamed rice.</p>
+                            <button class="menu-btn" data-target="#rice">Browse</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="dessert.jpg" alt="Desserts" class="menu-image">
+                        <div class="menu-content">
+                            <h3>Desserts</h3>
+                            <p>Indulge in delightful sweets like rich chocolate cake, refreshing halo-halo, and creamy ice cream.</p>
+                            <button class="menu-btn" data-target="#dessert">Browse</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <img src="softdrinks.jpg" alt="Drinks" class="menu-image">
+                        <div class="menu-content">
+                            <h3>Drinks</h3>
+                            <p>Quench your thirst with fresh juices, smoothies, and chilled soft drinks.</p>
+                            <button class="menu-btn" data-target="#drinks">Browse</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rice" class="section products-section" data-category="rice">
+        <div class="section-inner">
+            <div class="slider-container">
+                <button class="slider-arrow slider-arrow-left" id="rice-left"><</button>
+                <div class="slider-wrapper" id="rice-slider">
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('porkadobo.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Adobo</h3>
+                            <p>Tender chicken or pork marinated in soy sauce, vinegar, garlic, and bay leaves, served with steamed rice.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('caldereta.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Caldereta</h3>
+                            <p>Rich beef stew slow-cooked with potatoes, carrots, bell peppers, and a savory tomato-based sauce.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('lechon.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Lechon</h3>
+                            <p>Juicy grilled pork belly seasoned with garlic, soy sauce, and calamansi, perfect with rice.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('bulalo.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Sinigang</h3>
+                            <p>Sour tamarind soup with pork, vegetables, and rice, a comforting Filipino favorite.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('laing.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Laing</h3>
+                            <p>Chicken soup with ginger, green papaya, and malunggay leaves, served with rice.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('bicolexpress.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Bicol Express</h3>
+                            <p>Spicy pork stew with coconut milk, chili peppers, and shrimp paste, served with rice.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="rice">
+                        <div class="menu-image" style="background-image:url('sisig.jpg')"></div>
+                        <div class="menu-content">
+                            <h3>Sisig</h3>
+                            <p>Sizzling chopped pork with onions, chili, and calamansi, a popular Filipino appetizer.</p>
+                            <div class="menu-price">₱99</div>
+                            <button class="menu-btn">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="slider-arrow slider-arrow-right" id="rice-right">></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="dessert" class="section products-section" data-category="dessert">
+        <div class="section-inner">
+            <div class="menu-grid">
+                <div class="menu-item" data-category="dessert">
+                    <div class="menu-image" style="background-image:url('chocolatecake.jpg')"></div>
+                    <div class="menu-content">
+                        <h3>Chocolate Cake</h3>
+                        <p>Decadent chocolate cake with rich, velvety frosting and layers of moist goodness.</p>
+                        <div class="menu-price">₱60</div>
+                        <button class="menu-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <div class="menu-image" style="background-image:url('halohalo.jpg')"></div>
+                    <div class="menu-content">
+                        <h3>Halo-Halo</h3>
+                        <p>A refreshing Filipino dessert with shaved ice, sweetened beans, fruits, and leche flan.</p>
+                        <div class="menu-price">₱70</div>
+                        <button class="menu-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="dessert">
+                    <div class="menu-image" style="background-image:url('icecream.jpg')"></div>
+                    <div class="menu-content">
+                        <h3>Ice Cream</h3>
+                        <p>Creamy vanilla ice cream served in a bowl, customizable with toppings like chocolate syrup or nuts.</p>
+                        <div class="menu-price">₱50</div>
+                        <button class="menu-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="drinks" class="section products-section" data-category="drinks">
+        <div class="section-inner">
+            <div class="menu-grid">
+                <div class="menu-item" data-category="drinks">
+                    <div class="menu-image" style="background-image:url('freshjuice.jpg')"></div>
+                    <div class="menu-content">
+                        <h3>Fresh Juice</h3>
+                        <p>Freshly squeezed orange juice, packed with vitamins and natural sweetness for a healthy boost.</p>
+                        <div class="menu-price">₱40</div>
+                        <button class="menu-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="drinks">
+                    <div class="menu-image" style="background-image:url('smoothie.jpg')"></div>
+                    <div class="menu-content">
+                        <h3>Smoothie</h3>
+                        <p>Blended mix of fresh fruits, yogurt, and honey, a refreshing and nutritious drink option.</p>
+                        <div class="menu-price">₱60</div>
+                        <button class="menu-btn">Order Now</button>
+                    </div>
+                </div>
+                <div class="menu-item" data-category="drinks">
+                    <div class="menu-image" style="background-image:url('softdrinks.jpg')"></div>
+                    <div class="menu-content">
+                        <h3>Soft Drinks</h3>
+                        <p>Chilled cola or lemon-lime soda, the classic choice for a fizzy and refreshing beverage.</p>
+                        <div class="menu-price">₱25</div>
+                        <button class="menu-btn">Order Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+            <script>
+                (function(){
+                    const mainLinks = document.querySelectorAll('.main-nav a');
+                    const current = location.pathname.split('/').pop() || 'index.html';
+                    mainLinks.forEach(a => {
+                        const href = a.getAttribute('href');
+                        if(href === current) a.classList.add('active');
+                    });
+                })();
+
+                (function(){
+                    const categoryBtns = document.querySelectorAll('.category-btn');
+                    categoryBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const target = btn.getAttribute('data-target');
+                            const section = document.querySelector(target);
+                            if(section) {
+                                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                            // toggle active state
+                            categoryBtns.forEach(b => b.classList.remove('active'));
+                            btn.classList.add('active');
+                        });
+                    });
+                    // Set the first as active on load
+                    if(categoryBtns.length) categoryBtns[0].classList.add('active');
+                })();
+
+                (function(){
+                    const browseBtns = document.querySelectorAll('.menu-btn[data-target]');
+                    browseBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const target = btn.getAttribute('data-target');
+                            const section = document.querySelector(target);
+                            if(section) {
+                                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        });
+                    });
+                })();
+
+                (function(){
+                    // Filter functionality
+                    const filterBtns = document.querySelectorAll('.category-btn');
+                    const sections = document.querySelectorAll('.products-section');
+
+                    filterBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const category = btn.getAttribute('data-target').replace('#', '');
+                            sections.forEach(section => {
+                                if (section.id === category) {
+                                    section.style.display = 'block';
+                                } else {
+                                    section.style.display = 'none';
+                                }
+                            });
+                        });
+                    });
+
+                    // Show all sections initially
+                    sections.forEach(section => section.style.display = 'block');
+                })();
+
+                (function(){
+                    const navLinks = document.querySelectorAll('.sub-nav a');
+                    const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href')));
+
+                    function setActive(link){
+                        navLinks.forEach(l => l.classList.toggle('active', l === link));
+                    }
+
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', (e) => {
+                            setActive(link);
+                        });
+                    });
+
+
+                    const observer = new IntersectionObserver((entries) => {
+
+                        let visible = entries.filter(e => e.isIntersecting).sort((a,b)=> b.intersectionRatio - a.intersectionRatio)[0];
+                        if(visible){
+                            const id = visible.target.id;
+                            const link = document.querySelector('.sub-nav a[href="#'+id+'"]');
+                            if(link) setActive(link);
+                        }
+                    }, { root: null, rootMargin: '-10% 0px -55% 0px', threshold: [0.1, 0.4, 0.7] });
+
+                    sections.forEach(s => { if(s) observer.observe(s); });
+                })();
+
+                (function(){
+                    const hamburger = document.querySelector('.hamburger');
+                    const nav = document.querySelector('.main-nav');
+                    if(hamburger) {
+                        hamburger.addEventListener('click', () => {
+                            nav.classList.toggle('open');
+                            hamburger.classList.toggle('open');
+                        });
+                    }
+                })();
+
+                (function(){
+                    // Slider functionality for rice meals
+                    const sliderWrapper = document.getElementById('rice-slider');
+                    const leftArrow = document.getElementById('rice-left');
+                    const rightArrow = document.getElementById('rice-right');
+
+                    if (sliderWrapper && leftArrow && rightArrow) {
+                        const scrollAmount = 370; // 350px item width + 20px gap
+
+                        leftArrow.addEventListener('click', () => {
+                            sliderWrapper.scrollBy({
+                                left: -scrollAmount,
+                                behavior: 'smooth'
+                            });
+                        });
+
+                        rightArrow.addEventListener('click', () => {
+                            sliderWrapper.scrollBy({
+                                left: scrollAmount,
+                                behavior: 'smooth'
+                            });
+                        });
+                    }
+                })();
+
+                (function(){
+                    // Order Now buttons redirect to contact
+                    const orderBtns = document.querySelectorAll('.menu-btn:not([data-target])');
+                    orderBtns.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            window.location.href = 'contact.html';
+                        });
+                    });
+                })();
+            </script>
+
+    </body>
+    </html>

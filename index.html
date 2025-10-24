@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIANA'S MEALS - Filipino Rice Meals</title>
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">KIANA'S MEALS</div>
+
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="meals.html">Meals</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Rice Meals</h1>
+            <p>Classic Filipino rice meals <br>like adobo, caldereta, and liempo. <br>Taste of home, served with heart.</p>
+            <button class="btn-browse">BROWSE MEALS</button>
+        </div>
+    </section>
+
+    
+
+        <script>
+            (function(){
+                const mainLinks = document.querySelectorAll('.main-nav a');
+                const current = location.pathname.split('/').pop() || 'home.html';
+                mainLinks.forEach(a => {
+                    const href = a.getAttribute('href');
+                    if(href === current) a.classList.add('active');
+                });
+                if(current === 'home.html') {
+                    document.body.classList.add('home-page');
+                }
+
+                const browseBtn = document.querySelector('.btn-browse');
+                if(browseBtn) {
+                    browseBtn.addEventListener('click', () => {
+                        window.location.href = 'meals.html';
+                    });
+                }
+            })();
+
+            (function(){
+                const hamburger = document.querySelector('.hamburger');
+                const nav = document.querySelector('.main-nav');
+                if(hamburger) {
+                    hamburger.addEventListener('click', () => {
+                        nav.classList.toggle('open');
+                        hamburger.classList.toggle('open');
+                    });
+                }
+            })();
+        </script>
+
+</body>
+</html>

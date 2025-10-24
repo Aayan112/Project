@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KIANA'S MEALS - Contact Us</title>
+    <link rel="stylesheet" href="style.css"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header page-header">
+        <div class="logo">KIANA'S MEALS</div>
+        <button class="hamburger" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="meals.html">Meals</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section contact-section">
+        <div class="section-inner">
+            <h2>Contact Us</h2>
+            <p class="contact-intro">Have questions or want to place an order? Reach out and we'll get back to you shortly.</p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <h3>Phone</h3>
+                            <p>+639 063593549</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Email</h3>
+                            <p>kcoleen.mercado@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <h3>Address</h3>
+                            <p>1625 Alvarez st. Sta. Cruz <br>Manila</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" placeholder="Your name" required>
+
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="you@example.com" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="How can we help?" required></textarea>
+
+                        <button class="main-btn" type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <script>
+            (function(){
+                const mainLinks = document.querySelectorAll('.main-nav a');
+                const current = location.pathname.split('/').pop() || 'contact.html';
+                mainLinks.forEach(a => {
+                    const href = a.getAttribute('href');
+                    if(href === current) a.classList.add('active');
+                });
+            })();
+
+            (function(){
+                const hamburger = document.querySelector('.hamburger');
+                const nav = document.querySelector('.main-nav');
+                if(hamburger) {
+                    hamburger.addEventListener('click', () => {
+                        nav.classList.toggle('open');
+                        hamburger.classList.toggle('open');
+                    });
+                }
+            })();
+
+            (function(){
+                // Send message via mailto to the given contact email
+                const form = document.getElementById('contact-form');
+                if(!form) return;
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value.trim();
+                    const fromEmail = document.getElementById('email').value.trim();
+                    const msg = document.getElementById('message').value.trim();
+                    if(!name || !fromEmail || !msg) {
+                        alert('Please fill out your name, email, and message.');
+                        return;
+                    }
+                    const to = 'kcoleen.mercado@gmail.com';
+                    const subject = encodeURIComponent(`[Contact] Message from ${name}`);
+                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${fromEmail}\n\nMessage:\n${msg}`);
+                    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+                });
+            })();
+        </script>
+
+</body>
+</html>
