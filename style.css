@@ -1,3 +1,54 @@
+/* Tablet safety: ensure sections don't overlap on <=992px */
+@media (max-width: 992px) {
+  .products-section { height: auto !important; min-height: auto !important; overflow: visible !important; display: block !important; scroll-margin-top: 84px; position: relative; isolation: isolate; z-index: 1; }
+  #dessert, #drinks { position: relative !important; z-index: 2; }
+  #dessert { z-index: 2 !important; }
+  #drinks { z-index: 999 !important; display: block !important; }
+  #dessert::before, #dessert::after, #drinks::before, #drinks::after { display: none !important; }
+}
+/* Mobile swipe: Rice Meals horizontal scroll-snap */
+@media (max-width: 768px) {
+  /* Ultimate guard: Drinks must be visible */
+  #dessert { padding-bottom: 40px !important; }
+  #drinks {
+    display: block !important;
+    position: relative !important;
+    z-index: 2147483647 !important; /* sit above any previous stacking contexts */
+    overflow: visible !important;
+    isolation: isolate !important;
+    clear: both !important;
+  }
+  #drinks .section-inner,
+  #drinks .menu-grid,
+  #drinks .menu-item,
+  #drinks .menu-image { position: relative !important; z-index: 2147483647 !important; overflow: visible !important; }
+  #rice { padding-left: 0 !important; padding-right: 0 !important; margin-left: 0 !important; margin-right: 0 !important; }
+  #rice .section-inner { width: 100vw !important; max-width: 100vw !important; box-sizing: border-box; }
+  #rice .slider-container { width: 100vw !important; }
+  #rice .slider-wrapper {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 0; /* no gaps between slides */
+    padding: 0 !important; /* no left/right padding */
+  }
+  #rice .slider-wrapper::-webkit-scrollbar { display: none; }
+  #rice .menu-item {
+    flex: 0 0 100% !important; /* full-width card edge-to-edge */
+    scroll-snap-align: center;
+    margin: 0 !important; /* no outer margin */
+    padding: 0 !important; /* no inner padding creating side space */
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  #rice .section-inner { padding-left: 0 !important; padding-right: 0 !important; margin: 0 !important; }
+  #rice .slider-container { padding: 0 !important; margin: 0 !important; width: 100% !important; }
+  #rice .menu-image { border-radius: 0 !important; width: 100% !important; }
+}
 /* iPhone 12/13 Pro width fine-tuning */
 @media (max-width: 400px) {
   html, body { max-width: 100vw; overflow-x: hidden; }
@@ -9,9 +60,49 @@
   #rice .menu-item { width: 100% !important; }
   .menu-sidebar { gap: 8px; }
   .main-header { padding: 0 10px; }
+
+  /* Products sections: compact, single-column cards */
+  .meals-page .products-section .section-inner { padding-left: 10px; padding-right: 10px; }
+  .meals-page .products-section .menu-grid { grid-template-columns: 1fr !important; gap: 10px !important; justify-items: center; width: 100% !important; }
+  .meals-page .products-section .menu-item { width: 100% !important; max-width: 320px !important; height: auto !important; margin: 0 auto 10px; padding: 0 12px 12px !important; overflow: hidden; border-radius: 12px; }
+  .meals-page .products-section .menu-image { width: 100% !important; height: 140px !important; border-radius: 12px 12px 0 0; margin: 0 0 8px 0 !important; }
+  .meals-page .products-section h3 { font-size: 1.25rem; margin: 8px 0; }
+  .meals-page .products-section .menu-content p { font-size: 0.95rem; line-height: 1.5; min-height: auto; margin-bottom: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  .meals-page .products-section .menu-price { font-size: 0.95rem; margin-bottom: 8px; }
+  .meals-page .products-section .menu-btn { padding: 0.7rem 1rem; font-size: 0.95rem; }
 }
 /* Mobile nav final overrides: ensure hamburger opens menu */
 @media (max-width: 768px) {
+  /* Allow product sections to grow naturally on mobile */
+  .products-section { height: auto !important; min-height: auto !important; overflow: visible !important; padding: 16px 0 24px !important; display: block !important; }
+  #drinks .menu-grid { display: grid !important; }
+  /* Avoid header covering anchored sections */
+  .products-section { scroll-margin-top: 84px; }
+  /* Prevent overlap between sections: new stacking context per section */
+  .products-section { position: relative; isolation: isolate; z-index: 1; }
+  #dessert, #drinks { position: relative; z-index: 2; }
+  #drinks { z-index: 3; }
+  /* Hide any decorative pseudo elements that might overlap on mobile */
+  #dessert::before, #dessert::after, #drinks::before, #drinks::after { display: none !important; }
+  /* Add spacing between stacked sections and ensure items render above backgrounds */
+  .products-section + .products-section { margin-top: 16px !important; }
+  .products-section .menu-item, .products-section .menu-image { position: relative; z-index: 3; }
+  /* Strong visibility fix for Drinks */
+  #dessert, #drinks { overflow: visible !important; }
+  #dessert .section-inner, #drinks .section-inner { overflow: visible !important; }
+  #dessert .menu-grid, #drinks .menu-grid { overflow: visible !important; }
+  #dessert { padding-bottom: 28px !important; }
+  #drinks { margin-top: 28px !important; }
+  /* Card size tightening */
+  .products-section .menu-item { max-width: 300px !important; width: 100% !important; height: auto !important; padding: 0 12px 12px !important; overflow: hidden; border-radius: 14px; }
+  .products-section .menu-image { width: 100% !important; height: 150px !important; margin: 0 0 10px 0 !important; display: block; }
+  /* Ensure background-image tiles are centered inside the image box */
+  #dessert .menu-image, #drinks .menu-image { background-position: center center !important; }
+  .products-section .menu-content p { font-size: 0.95rem !important; line-height: 1.5 !important; margin-bottom: 10px !important; min-height: auto !important; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
+  .products-section .menu-price { margin-bottom: 8px !important; }
+  /* Reduce product card size on small tablets/phones */
+  .products-section .menu-item { max-width: clamp(280px, 90vw, 300px) !important; width: 100% !important; height: auto !important; padding: 10px !important; }
+  .products-section .menu-image { width: 100% !important; height: clamp(140px, 40vw, 160px) !important; }
   .main-nav {
     position: fixed !important;
     left: 0; right: 0;
@@ -75,11 +166,22 @@
   /* Header: place hamburger on the right */
   .main-header { padding: 0 12px; }
   .logo { flex: 0 0 auto; }
-  .hamburger { margin-left: auto; }
+  .hamburger { margin-left: auto; margin-right: 32px; }
 
   /* Stack sidebar above cards */
   .menu-container { display: block; }
-  .menu-sidebar { margin: 0 0 12px 0; display: flex; gap: 12px; justify-content: center; }
+  .menu-sidebar { 
+    position: static !important; /* prevent overlay */
+    top: auto !important; 
+    margin: 0 0 12px 0; 
+    display: flex; 
+    gap: 12px; 
+    justify-content: center; 
+    z-index: 0; 
+    flex-wrap: wrap;
+  }
+  .category-btn { width: 140px; height: auto; padding: 10px; }
+  .category-img { width: 48px; height: 48px; }
   .menu-section .menu-grid { grid-template-columns: 1fr; gap: 1rem; margin: 0 auto; width: 100% !important; justify-items: center; justify-content: center; padding: 0 8px; }
   .menu-section .menu-item { max-width: 360px; }
   .menu-section .menu-image { width: 100% !important; max-width: 100% !important; height: 210px !important; }

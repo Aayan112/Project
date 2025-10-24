@@ -265,14 +265,20 @@
 
                     filterBtns.forEach(btn => {
                         btn.addEventListener('click', () => {
-                            const category = btn.getAttribute('data-target').replace('#', '');
-                            sections.forEach(section => {
-                                if (section.id === category) {
-                                    section.style.display = 'block';
-                                } else {
-                                    section.style.display = 'none';
-                                }
-                            });
+                            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+                            const targetSel = btn.getAttribute('data-target');
+                            const targetEl = document.querySelector(targetSel);
+                            if (isMobile) {
+                                // On mobile: never hide sections; just scroll to the target
+                                sections.forEach(s => s.style.display = 'block');
+                                if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            } else {
+                                const category = targetSel.replace('#', '');
+                                sections.forEach(section => {
+                                    section.style.display = (section.id === category) ? 'block' : 'none';
+                                });
+                                if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
                         });
                     });
 
